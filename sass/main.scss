@@ -1,0 +1,131 @@
+@import "./reset.scss";
+
+$pale-blue: hsl(225, 100%, 94%);
+$bright-blue: hsl(245, 75%, 52%);
+$very-pale-blue: hsl(225, 100%, 98%);
+$desaturated-blue: hsl(224, 23%, 55%);
+$dark-blue: hsl(223, 47%, 23%);
+
+@mixin button-base {
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+.order-summary-component {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto";
+  background-color: $pale-blue;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/pattern-background-desktop.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 37.5em) {
+    background-image: url(../img/pattern-background-mobile.svg);
+  }
+}
+
+.order {
+  width: #{"min(90vw, 450px)"};
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+
+  &__image {
+    display: block;
+    max-width: 100%;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+  }
+
+  &__title {
+    color: $dark-blue;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  &__summary {
+    color: $desaturated-blue;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  &__finish-button {
+    @include button-base;
+    background-color: $bright-blue;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__cancel-button {
+    @include button-base;
+    background-color: transparent;
+    color: $desaturated-blue;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.plan {
+  background-color: $very-pale-blue;
+  max-width: 100%;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+
+  &__type {
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__period {
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    color: $desaturated-blue;
+  }
+
+  &__change-button {
+    margin-left: auto;
+    background: none;
+    color: $bright-blue;
+    border: none;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+  }
+}
